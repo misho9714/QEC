@@ -1,7 +1,7 @@
 import stim
+import numpy as np
 print(stim.__version__)
 
-print("Hi")
 
 circuit = stim.Circuit("""
 
@@ -46,3 +46,15 @@ DETECTOR(3, 0) rec[-1] rec[-2] rec[-4]
 OBSERVABLE_INCLUDE(0) rec[-1]
 
 """)
+
+nShots = 10000000
+# Run 1000 shots
+samples = circuit.compile_sampler().sample(shots=nShots)
+
+# Get only the final 3 data qubit measurements
+final_measurements = samples[:, -3:]
+
+# Count how many shots are NOT equal to [0, 0, 0]
+count_non_zero = np.sum(np.any(final_measurements, axis=1))
+
+print(f"Out of 1000 shots, {count_non_zero/nShots} were different from [0 0 0].")
