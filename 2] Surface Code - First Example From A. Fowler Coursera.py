@@ -1,6 +1,8 @@
 import stim
 print(stim.__version__)
 
+print("Hi")
+
 circuit = stim.Circuit("""
 
 R 0 1 2 3 4
