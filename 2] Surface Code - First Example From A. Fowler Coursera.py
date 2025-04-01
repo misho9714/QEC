@@ -43,7 +43,7 @@ M 0 2 4
 SHIFT_COORDS(0, 1)
 DETECTOR(1, 0) rec[-2] rec[-3] rec[-5]
 DETECTOR(3, 0) rec[-1] rec[-2] rec[-4]
-OBSERVABLE_INCLUDE(0) rec[-1]
+OBSERVABLE_INCLUDE(0) rec[-1] 
 
 """)
 
